@@ -6,31 +6,29 @@
  * */
 
 fun main(arguments: Array<String>) {
-    var age: Int = 32
-    val name: String = "Maria"
-    val lastname: String = "Carranza"
-    val weight: Double = 65.1
-    println(name)
-    println("$name is a musician")
-    println(age)
-    age += 1
-    println(age)
+    val chrisGrade = 49
+    val samGrade = 99
+    val meritAwardGrade = 90
+    var message: String
 
-    val fullName = "$lastname, $name"
-    println(fullName)
 
-    val ageAsString = age.toString()
-    println(ageAsString)
+    val chrisHasPerfectAttendance = true
+    val isChrisMeritStudent = chrisHasPerfectAttendance && chrisGrade > meritAwardGrade
+    println(isChrisMeritStudent)
 
-    val ageFromString = "35".toInt()
-    println(ageFromString)
+    message = if (isChrisMeritStudent) {
+        "Cngratulations"
+    } else {
+        "Keep studying"
+    }
+    println(message)
 
-    val nameLength = fullName.length
-    println(nameLength)
-
-    // This is a line comment.
-
-    /*
-        This is a multiline comment.
-     */
+    val betterStudent = if (samGrade > chrisGrade) {
+        "Sam"
+    } else if (samGrade < chrisGrade) {
+        "Chris"
+    } else {
+        "They have equal grades!!!"
+    }
+    println(betterStudent)
 }
