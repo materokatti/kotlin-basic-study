@@ -6,21 +6,14 @@
  * */
 
 fun main(arguments: Array<String>) {
-    val rangeFromZeroToTen = 0 .. 10
-    println(rangeFromZeroToTen)
 
-    val exclusiveRange = 0 until 10
-    println(exclusiveRange)
-
-    for (index in rangeFromZeroToTen step 2) {
-        print(index)
+    row@ for (row in 0 .. 5) {
+        column@ for (column in 0 .. 5) {
+            if(column == 2 && row  ==2) {
+                break@row
+            }
+            print("x\t")
+        }
+        println()
     }
-
-    println("")
-
-    for (index in 10 downTo  0) {
-        print(index)
-    }
-
-    println("")
 }
