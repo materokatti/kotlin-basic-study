@@ -6,15 +6,18 @@
  * */
 
 fun main(arguments: Array<String>) {
-    val myName = "Emmanuel"
-    val nickname : String? = null
-//    val lastName : String = null
-    val nicknameLength = nickname!!.length
+    val password: String? = "12345"
+    val passwordLength = password?.length ?: 0
 
-    val myNickname = nickname ?: myName
-    println(myNickname)
-
-    if (nickname?.isEmpty() == true) {
-        println("You don't have a nickname! It's length is: ${nickname.length}")
+    val message = if (passwordLength == 0) {
+        "Ehm, you need a password to keep safe!"
+    } else if (passwordLength in 1..5) {
+        "Weak password! Try adding a few more symbols to it!"
+    } else if (passwordLength in 6..10) {
+        "Medium-strength password."
+    } else if (passwordLength in 11..15) {
+        "No one is getting through this!"
+    } else {
+        "Ironclad"
     }
 }
