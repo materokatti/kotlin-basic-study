@@ -6,18 +6,28 @@
  * */
 
 fun main(arguments: Array<String>) {
-    val password: String? = "12345"
-    val passwordLength = password?.length ?: 0
-
-    val message = if (passwordLength == 0) {
-        "Ehm, you need a password to keep safe!"
-    } else if (passwordLength in 1..5) {
-        "Weak password! Try adding a few more symbols to it!"
-    } else if (passwordLength in 6..10) {
-        "Medium-strength password."
-    } else if (passwordLength in 11..15) {
-        "No one is getting through this!"
-    } else {
-        "Ironclad"
+    fun printHello(name:String, isVeteran:Boolean = false) {
+        if (isVeteran) println("Hello $name. Thank you for your service.")
+        else println("Hello $name.")
     }
+
+    printHello("Doyun", true)
+    printHello("Doyoung")
+
+    fun createRange(start: Int, end: Int, isHalfOpen: Boolean = false): IntRange {
+        return if (isHalfOpen) {
+            start until end
+        } else {
+            start..end
+        }
+    }
+
+    fun printRange(range: IntRange) {
+        for (number in range) print("$number \t")
+        println()
+    }
+
+    val halfOpenRange = createRange(5, 10, true)
+    printRange(halfOpenRange)
+
 }
