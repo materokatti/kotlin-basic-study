@@ -6,28 +6,20 @@
  * */
 
 fun main(arguments: Array<String>) {
-    fun printHello(name:String, isVeteran:Boolean = false) {
-        if (isVeteran) println("Hello $name. Thank you for your service.")
-        else println("Hello $name.")
-    }
+    /*
+    val fullName = Pair<String, String>("Damini", "Ogulu")
 
-    printHello("Doyun", true)
-    printHello("Doyoung")
+    // destruction
+    val(name, lastName) = fullName
 
-    fun createRange(start: Int, end: Int, isHalfOpen: Boolean = false): IntRange {
-        return if (isHalfOpen) {
-            start until end
-        } else {
-            start..end
-        }
-    }
+     */
+    val birthday = Triple(2, 7, 1991)
+    val person = Pair("Damini, Ogulu", birthday)
+    val nameUsingOrdering = person.first
+    val birthdayUsingOrdering = person.second
+    val (name, bday) = person
+    val (dayOfBirth, birthMonth, yearOfBirth) = bday
 
-    fun printRange(range: IntRange) {
-        for (number in range) print("$number \t")
-        println()
-    }
-
-    val halfOpenRange = createRange(5, 10, true)
-    printRange(halfOpenRange)
+    println("$name was born on $dayOfBirth/$birthMonth, year $yearOfBirth")
 
 }
