@@ -6,20 +6,46 @@
  * */
 
 fun main(arguments: Array<String>) {
-    /*
-    val fullName = Pair<String, String>("Damini", "Ogulu")
+    val countries = arrayOf(
+        "China",
+        "Japan",
+        "South Korea",
+        "India",
+        "Indonesia",
+        "Thailand",
+        "Vietnam",
+        "Philippines",
+        "Malaysia",
+        "Singapore",
+        "Pakistan",
+        "Bangladesh",
+        "Sri Lanka",
+        "Nepal",
+        "Saudi Arabia",
+        "United Arab Emirates"
+    )
+    println(countries)
+    println(countries.size)
+    println(countries[3])
 
-    // destruction
-    val(name, lastName) = fullName
+    println(countries.get(3))
 
-     */
-    val birthday = Triple(2, 7, 1991)
-    val person = Pair("Damini, Ogulu", birthday)
-    val nameUsingOrdering = person.first
-    val birthdayUsingOrdering = person.second
-    val (name, bday) = person
-    val (dayOfBirth, birthMonth, yearOfBirth) = bday
+//    println(countries[20])
+//    println(countries[-1])
 
-    println("$name was born on $dayOfBirth/$birthMonth, year $yearOfBirth")
+    val updatedArray = countries + "Mauritius"
+    println(countries.size)
 
+    val sizedArray = Array(10){""}
+    val emptyArray = emptyArray<String>()
+
+    val arrayOfInts = intArrayOf(2,3,4,5,6,7)
+    println(arrayOfInts)
+
+    val intArray = IntArray(10)
+    println(intArray)
+
+    println(countries.lastIndex)
+    println(countries.first())
+    println(countries.last())
 }
