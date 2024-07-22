@@ -21,5 +21,4 @@ fun main(arguments: Array<String>) {
     mutableList.remove("Ghana")
 
     println(mutableList)
-
 }
