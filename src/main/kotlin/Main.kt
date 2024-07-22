@@ -6,20 +6,20 @@
  * */
 
 fun main(arguments: Array<String>) {
-    /*
-    val fullName = Pair<String, String>("Damini", "Ogulu")
+    val countries = listOf("Benin", "Burkina Faso", "Cape Verde")
+    val mutableList = countries.toMutableList()
 
-    // destruction
-    val(name, lastName) = fullName
+    // add : O(1)
+    mutableList.add("Nigeria")
+    // add : O(n)
+    mutableList.add(1, "Ghana")
 
-     */
-    val birthday = Triple(2, 7, 1991)
-    val person = Pair("Damini, Ogulu", birthday)
-    val nameUsingOrdering = person.first
-    val birthdayUsingOrdering = person.second
-    val (name, bday) = person
-    val (dayOfBirth, birthMonth, yearOfBirth) = bday
+    println(countries)
+    println(mutableList)
 
-    println("$name was born on $dayOfBirth/$birthMonth, year $yearOfBirth")
+    // remove : O(n)
+    mutableList.remove("Ghana")
+
+    println(mutableList)
 
 }
