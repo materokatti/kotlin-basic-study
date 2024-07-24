@@ -6,19 +6,19 @@
  * */
 
 fun main(arguments: Array<String>) {
-    val countries = listOf("Benin", "Burkina Faso", "Cape Verde")
-    val mutableList = countries.toMutableList()
+    // Create a mutable map to store pet names and their types
+    val pets = mutableMapOf<String, String>()
 
-    // add : O(1)
-    mutableList.add("Nigeria")
-    // add : O(n)
-    mutableList.add(1, "Ghana")
+    // Adding some pet names and their types
+    pets["Max"] = "German Shepard Dog"
+    pets["Whiskers"] = "Tabby Cat"
+    pets["Nemo"] = "Clownfish"
 
-    println(countries)
-    println(mutableList)
+    // Remove a pet from the map
+    pets.remove("Whiskers")
 
-    // remove : O(n)
-    mutableList.remove("Ghana")
-
-    println(mutableList)
+    // Iterate over the map and print the entries
+    for ((name, type) in pets) {
+        println("Pet name: $name, Type: $type")
+    }
 }
