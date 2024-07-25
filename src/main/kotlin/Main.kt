@@ -6,19 +6,27 @@
  * */
 
 fun main(arguments: Array<String>) {
-    // Create a mutable map to store pet names and their types
-    val pets = mutableMapOf<String, String>()
+    var userIds = setOf("ID1B", "ID2C")
+    println(userIds)
+    println(userIds.contains("ID1B"))
+    println("ID2C" in userIds)
 
-    // Adding some pet names and their types
-    pets["Max"] = "German Shepard Dog"
-    pets["Whiskers"] = "Tabby Cat"
-    pets["Nemo"] = "Clownfish"
+    val mutableIds = userIds.toMutableSet()
 
-    // Remove a pet from the map
-    pets.remove("Whiskers")
+    println(mutableIds.add("ID0Z"))
+    println(mutableIds)
 
-    // Iterate over the map and print the entries
-    for ((name, type) in pets) {
-        println("Pet name: $name, Type: $type")
+    println(mutableIds.add("ID1B"))
+    println(mutableIds)
+
+    println(mutableIds.remove("ID1B"))
+
+    for (userId in userIds) {
+        println(userId)
     }
+
+    val names = arrayOf("Doyun", "Doyoung", "Taihong")
+    println(names)
+    val uniqueNames = names.toSet()
+    println(uniqueNames)
 }
