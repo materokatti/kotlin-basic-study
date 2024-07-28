@@ -6,27 +6,49 @@
  * */
 
 fun main(arguments: Array<String>) {
-    var userIds = setOf("ID1B", "ID2C")
-    println(userIds)
-    println(userIds.contains("ID1B"))
-    println("ID2C" in userIds)
+    val email:String? = "mail@mail.com"
+    val password:String? = "password"
 
-    val mutableIds = userIds.toMutableSet()
+    fun validateString(input: String?, inputType: String) =
+        if (input.isNullOrBlank()) {
+            false
+        } else if (inputType == "Password") {
+            input.length >= 10
+        } else if (inputType == "Email") {
+            input.contains("@")
+        } else {
+            println("Cannot verify this input type")
 
-    println(mutableIds.add("ID0Z"))
-    println(mutableIds)
+            false
+        }
 
-    println(mutableIds.add("ID1B"))
-    println(mutableIds)
+    fun validateString(input: String?, validator: (String) -> Boolean) =
+        if (input.isNullOrBlank()) {
+            false
+        } else {
+            validator(input)
+        }
+    validateString("Hello World", "Welcome Message")
 
-    println(mutableIds.remove("ID1B"))
+    val isValidEmail = validateString(email, "Email")
+    println(isValidEmail)
 
-    for (userId in userIds) {
-        println(userId)
+
+    val isValidPassword = validateString(password){input -> input.length >= 10}
+    println(isValidPassword)
+
+    fun validatePassword(password: String) = password.length >= 10
+
+    // :: = function reference
+    val isValidPword = validateString(password, ::validatePassword)
+    println(isValidPword)
+
+    val passwordValidator = ::validatePassword
+    println(passwordValidator("Weak PW"))
+
+    val validator: (String?) -> Boolean = {input ->
+        input != null && validatePassword(input)
     }
+    println(validator("ReallyStrongPassword123"))
 
-    val names = arrayOf("Doyun", "Doyoung", "Taihong")
-    println(names)
-    val uniqueNames = names.toSet()
-    println(uniqueNames)
 }
